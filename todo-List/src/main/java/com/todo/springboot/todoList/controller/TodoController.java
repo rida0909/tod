@@ -36,21 +36,11 @@ public class TodoController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String showTodos(ModelMap model) {
-//		String name = getLoggedInUserName(model);
 		model.put("todos", todoService.getTodosByUser());
 		// model.put("todos", service.retrieveTodos(name));
 		return "list-todos";
 	}
 
-//	private String getLoggedInUserName(ModelMap model) {
-//		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//
-//		if (principal instanceof UserDetails) {
-//			return ((UserDetails) principal).getUsername();
-//		}
-//
-//		return principal.toString();
-//	}
 
 	@RequestMapping(value = "/add-todo", method = RequestMethod.GET)
 	public String showAddTodoPage(ModelMap model) {
